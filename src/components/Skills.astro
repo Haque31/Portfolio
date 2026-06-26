@@ -1,0 +1,58 @@
+---
+import SectionHeading from './SectionHeading.astro';
+
+const groups = [
+  {
+    number: '01',
+    title: 'Languages',
+    items: ['JavaScript', 'Python', 'C++', 'Java'],
+  },
+  {
+    number: '02',
+    title: 'Frontend',
+    items: ['React', 'Astro', 'HTML5', 'CSS3', 'Responsive UI'],
+  },
+  {
+    number: '03',
+    title: 'Backend & Data',
+    items: ['Node.js', 'Express', 'REST APIs', 'MongoDB', 'MySQL'],
+  },
+  {
+    number: '04',
+    title: 'Machine Learning',
+    items: ['Pandas', 'scikit-learn', 'Jupyter', 'Data preprocessing', 'Model evaluation'],
+  },
+  {
+    number: '05',
+    title: 'Tools',
+    items: ['Git', 'GitHub', 'VS Code', 'Postman', 'Cloudinary'],
+  },
+  {
+    number: '06',
+    title: 'Working Style',
+    items: ['Problem solving', 'Team collaboration', 'Debugging', 'Documentation', 'Fast learning'],
+  },
+];
+---
+
+<section id="skills" class="section container" aria-labelledby="skills-title">
+  <SectionHeading
+    eyebrow="Capabilities"
+    title="A practical stack for building end to end."
+    description="I work across interfaces, APIs, databases, and data workflows, with a bias toward systems that solve concrete problems."
+  />
+
+  <div class="skill-grid">
+    {groups.map((group) => (
+      <article class="skill-card reveal">
+        <div class="skill-card__header">
+          <span>{group.number}</span>
+          <h3>{group.title}</h3>
+        </div>
+        <ul>
+          {group.items.map((item) => <li>{item}</li>)}
+        </ul>
+      </article>
+    ))}
+  </div>
+</section>

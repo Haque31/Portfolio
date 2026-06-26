@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://haque31.github.io/mridul-haque-portfolio/sitemap-index.xml

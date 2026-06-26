@@ -1,0 +1,70 @@
+---
+import { Image } from 'astro:assets';
+import portrait from '../assets/mridul-haque-portrait.png';
+---
+
+<section id="about" class="hero container" aria-labelledby="hero-title">
+  <div class="hero__copy">
+    <p class="availability reveal">
+      <span aria-hidden="true"></span>
+      Available for internships and early-career roles
+    </p>
+
+    <div class="hero__title-wrap reveal">
+      <p class="hero__kicker">Full-Stack Developer · Data Science Enthusiast</p>
+      <h1 id="hero-title">Mridul<br /><span>Haque.</span></h1>
+    </div>
+
+    <p class="hero__tagline reveal">Building practical software where clean systems meet useful data.</p>
+
+    <p class="hero__bio reveal">
+      I’m a fourth-year CSE student at BRAC University, based in Dhaka, focused on full-stack and backend development. I build web products with the MERN stack and explore data-driven systems through Python and machine learning. My work ranges from role-based public-service platforms and freelance marketplaces to predictive models and a production website for Asian Power.
+    </p>
+
+    <div class="hero__actions reveal">
+      <a class="button button--primary" href="#projects">Explore my work</a>
+      <a class="button button--ghost" href="mailto:mridul1013@gmail.com">Email me</a>
+    </div>
+
+    <dl class="hero__facts reveal">
+      <div>
+        <dt>Based in</dt>
+        <dd>Dhaka, Bangladesh</dd>
+      </div>
+      <div>
+        <dt>Graduating</dt>
+        <dd>Fall 2026</dd>
+      </div>
+      <div>
+        <dt>Target roles</dt>
+        <dd>Full-stack · Backend</dd>
+      </div>
+    </dl>
+  </div>
+
+  <div class="hero__visual reveal" aria-label="Portrait of Mridul Haque">
+    <div class="portrait-frame">
+      <div class="portrait-frame__grid" aria-hidden="true"></div>
+      <Image
+        src={portrait}
+        alt="Mridul Haque wearing a grey suit against a neutral grey background"
+        width={760}
+        height={1013}
+        format="webp"
+        quality={88}
+        loading="eager"
+        fetchpriority="high"
+      />
+      <span class="portrait-frame__label">01 / BUILDER</span>
+    </div>
+    <div class="hero__orbit" aria-hidden="true">
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+
+  <a class="scroll-cue" href="#skills" aria-label="Scroll to skills">
+    <span>Scroll</span>
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v15m0 0 6-6m-6 6-6-6" /></svg>
+  </a>
+</section>

@@ -1,0 +1,9 @@
+{
+  "name": "Haque's Studio — Mridul Haque Portfolio",
+  "short_name": "Haque's Studio",
+  "start_url": "/mridul-haque-portfolio/",
+  "display": "standalone",
+  "background_color": "#090c10",
+  "theme_color": "#090c10",
+  "icons": []
+}

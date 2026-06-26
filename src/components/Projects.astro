@@ -1,0 +1,27 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import ProjectCard from './ProjectCard.astro';
+import SectionHeading from './SectionHeading.astro';
+
+interface Props {
+  projects: CollectionEntry<'projects'>[];
+}
+
+const { projects } = Astro.props;
+---
+
+<section id="projects" class="section section--projects" aria-labelledby="projects-title">
+  <div class="container">
+    <SectionHeading
+      eyebrow="Selected work"
+      title="Projects built around real workflows."
+      description="Academic, personal, and production work spanning full-stack systems, data science, and company-facing web development."
+    />
+
+    <div class="project-list">
+      {projects.map((project, index) => (
+        <ProjectCard index={index + 1} {...project.data} />
+      ))}
+    </div>
+  </div>
+</section>

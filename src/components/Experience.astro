@@ -1,0 +1,48 @@
+---
+import SectionHeading from './SectionHeading.astro';
+
+const timeline = [
+  {
+    period: 'Expected Fall 2026',
+    title: 'B.Sc. in Computer Science and Engineering',
+    organization: 'BRAC University · Dhaka',
+    description: 'Building a foundation across software engineering, databases, artificial intelligence, algorithms, computer systems, and team-based product development.',
+  },
+  {
+    period: 'Ongoing',
+    title: 'Deputy Managing Director & Website Developer',
+    organization: 'Asian Power',
+    description: 'Contribute to the family-operated electrical solutions company while developing its modern corporate website, translating business requirements into a responsive digital presence.',
+  },
+  {
+    period: 'Student activities',
+    title: 'Debating, Volunteering & Competitive Programming',
+    organization: 'Dhaka Commerce College · BRAC University',
+    description: 'Participated in debate competitions and tournaments, supported activities through the BRAC University Computer Club, and joined competitive-programming events at BRAC University.',
+  },
+];
+---
+
+<section id="experience" class="section container" aria-labelledby="experience-title">
+  <SectionHeading
+    eyebrow="Journey"
+    title="Education, responsibility, and work beyond coursework."
+    description="I’m at the start of my professional path, but I’ve already worked across team projects, a real company website, technical communities, and public speaking."
+  />
+
+  <div class="timeline">
+    {timeline.map((item, index) => (
+      <article class="timeline-item reveal">
+        <div class="timeline-item__rail" aria-hidden="true">
+          <span>{String(index + 1).padStart(2, '0')}</span>
+        </div>
+        <div class="timeline-item__content">
+          <p class="timeline-item__period">{item.period}</p>
+          <h3>{item.title}</h3>
+          <p class="timeline-item__organization">{item.organization}</p>
+          <p>{item.description}</p>
+        </div>
+      </article>
+    ))}
+  </div>
+</section>

@@ -1,0 +1,56 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import Skills from '../components/Skills.astro';
+import Projects from '../components/Projects.astro';
+import Experience from '../components/Experience.astro';
+import Contact from '../components/Contact.astro';
+import Footer from '../components/Footer.astro';
+import SiteScripts from '../components/SiteScripts.astro';
+
+const projects = (await getCollection('projects', ({ data }) => data.featured)).sort(
+  (a, b) => a.data.order - b.data.order,
+);
+
+const title = "Mridul Haque | Full-Stack Developer & Data Science Enthusiast";
+const description = "Portfolio of Mridul Haque, a Dhaka-based full-stack and backend developer and BRAC University CSE student building MERN applications and data-science projects.";
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Mridul Haque',
+  url: 'https://haque31.github.io/mridul-haque-portfolio/',
+  email: 'mailto:mridul1013@gmail.com',
+  jobTitle: 'Full-Stack Developer',
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Dhaka',
+    addressCountry: 'Bangladesh',
+  },
+  alumniOf: {
+    '@type': 'CollegeOrUniversity',
+    name: 'BRAC University',
+  },
+  sameAs: [
+    'https://github.com/Haque31',
+    'https://www.linkedin.com/in/mridul-haque/',
+  ],
+};
+---
+
+<BaseLayout {title} {description}>
+  <Header />
+  <main id="main-content">
+    <div id="top"></div>
+    <Hero />
+    <Skills />
+    <Projects {projects} />
+    <Experience />
+    <Contact />
+  </main>
+  <Footer />
+  <SiteScripts />
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+</BaseLayout>

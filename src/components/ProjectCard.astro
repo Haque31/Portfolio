@@ -1,0 +1,65 @@
+---
+interface Props {
+  index: number;
+  title: string;
+  subtitle: string;
+  description: string;
+  role: string;
+  year: string;
+  tags: string[];
+  github?: string;
+  live?: string;
+  status?: string;
+}
+
+const { index, title, subtitle, description, role, year, tags, github, live, status } = Astro.props;
+---
+
+<article class="project-card reveal">
+  <div class="project-card__index" aria-hidden="true">{String(index).padStart(2, '0')}</div>
+  <div class="project-card__body">
+    <div class="project-card__heading">
+      <div>
+        <p>{subtitle}</p>
+        <h3>{title}</h3>
+      </div>
+      <div class="project-card__links" aria-label={`${title} links`}>
+        {github && (
+          <a href={github} target="_blank" rel="noreferrer" aria-label={`View ${title} on GitHub`}>
+            GitHub
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9" /></svg>
+          </a>
+        )}
+        {live && (
+          <a href={live} target="_blank" rel="noreferrer" aria-label={`Open live ${title} project`}>
+            Live
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9" /></svg>
+          </a>
+        )}
+      </div>
+    </div>
+
+    <p class="project-card__description">{description}</p>
+
+    <div class="project-card__meta">
+      <div>
+        <span>Role</span>
+        <strong>{role}</strong>
+      </div>
+      <div>
+        <span>Context</span>
+        <strong>{year}</strong>
+      </div>
+      {status && (
+        <div>
+          <span>Access</span>
+          <strong>{status}</strong>
+        </div>
+      )}
+    </div>
+
+    <ul class="tag-list" aria-label="Technologies used">
+      {tags.map((tag) => <li>{tag}</li>)}
+    </ul>
+  </div>
+</article>
