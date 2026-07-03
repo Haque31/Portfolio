@@ -3,7 +3,7 @@ import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
   site: 'https://haque31.github.io',
-  base: '/mridul-haque-portfolio',
+  base: '/Portfolio',
   output: 'static',
   integrations: [sitemap()],
   build: {
